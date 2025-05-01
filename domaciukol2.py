@@ -6,24 +6,23 @@ movies = []
 with open("netflix_titles.tsv", encoding="utf-8") as file:
     data = csv.DictReader(file, delimiter="\t")
     for row in data:
-        # title
+        
         title = row["PRIMARYTITLE"]
 
-        # directors
         directors = []
         if row['DIRECTOR']:
             parts = row["DIRECTOR"].split(",")
             for dir in parts:
                 directors.append(dir.strip())
 
-        # cast
+        
         cast = []
         if row["CAST"]:
             parts = row["CAST"].split(",")
             for ca in parts:
                 cast.append(ca.strip())
 
-        # genres
+        
         genres = []
         if row["GENRES"]:
             parts = row["GENRES"].split(",")
